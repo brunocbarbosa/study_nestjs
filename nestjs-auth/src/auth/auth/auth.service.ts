@@ -28,22 +28,18 @@ export class AuthService {
   constructor(private jwtService: JwtService) {}
 
   login(username, password) {
-    console.log(username);
-    console.log(password);
     const user = this.validateCredentials(username, password);
-    console.log(user);
 
     const payload = {
       sub: user.id,
       username: user.username,
+      role: user.role,
     };
 
     return this.jwtService.sign(payload);
   }
 
   validateCredentials(username: string, password: string) {
-    console.log(username);
-    console.log(password);
     const user = users.find(
       (u) =>
         u.username === username && bcrypt.compareSync(password, u.password),

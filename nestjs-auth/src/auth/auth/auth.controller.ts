@@ -1,4 +1,6 @@
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { Role } from '../role.decorator';
+import { RoleGuard } from '../role.guard';
 import { AuthService } from './auth.service';
 import { JwtGuard } from './jwt.guard';
 
@@ -12,7 +14,8 @@ export class AuthController {
     return { token: this.authService.login(body.username, body.password) };
   }
 
-  @UseGuards(JwtGuard)
+  @Role('admin')
+  @UseGuards(JwtGuard, RoleGuard)
   @Get('test-auth')
   test(@Req() req) {
     console.log(req.user);
