@@ -1,15 +1,11 @@
 {
-  "name": "nestjs-crud",
+  "name": "nestjs-authenticate",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "knex:migrate": "knex migrate:make",
-    "knex:seed": "knex seed:make",
-    "migrate:run": "knex --knexfile knexfile.ts migrate:latest",
-    "seed:run": "knex seed:run",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -26,13 +22,8 @@
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
-    "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
-    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^9.0.0",
-    "knex": "^2.3.0",
-    "mysql": "^2.18.1",
-    "nestjs-knex": "^2.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
